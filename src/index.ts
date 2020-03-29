@@ -1,5 +1,4 @@
-import * as THREE from 'three';
-
+import { delay } from '../helper/util';
 const typewriter = (str : string, t : number = 100, callbackFn : (str : string) => void = () => {}) => {
     return new Promise<void>((resolve, reject) => {
         let label = '';
@@ -23,11 +22,11 @@ const typewriter = (str : string, t : number = 100, callbackFn : (str : string) 
     });
 }
 document.addEventListener('DOMContentLoaded', () => {
-    typewriter('Fodeld', 100, (str) => {
-        document.getElementById('mainLabel').innerHTML = str;
-    }).then(() => {
-        typewriter('An innovative solution to reduce hunger during self-lockdown', 70, (str) => {
-            document.getElementById('subLabel').innerHTML = str;
-        });
-    });
+    typewriter('Fodeld', 80, (str) => {
+        document.getElementById('main-label').innerHTML = str;
+    }).then(() => typewriter('An innovative solution to reduce hunger during self-lockdown', 50, (str) => {
+        document.getElementById('sub-label').innerHTML = str;
+        document.getElementById('main-line').classList.add("expandLeft");
+        setTimeout(() => document.getElementById('canvas-root').classList.add("fadeIn"), 3000);
+    }));
 });
