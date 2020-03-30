@@ -85,17 +85,34 @@ controls.enablePan = false;
 controls.enableZoom = false;
 
 let frameCount = 0;
+let active = false;
+
+const setActive = (val) => active = val;
+document.getElementById('attachdemo').addEventListener('click', () => setActive(true));
 
 const animate = () => {
     requestAnimationFrame(animate);
     controls.update();
     getChild(fodeld, "Box", (prop) => {
-        if(frameCount < 200){
+        if(active && frameCount < 200){
             prop.position.z += 0.5;
-            frameCount++;
             console.log(prop.position);
+            frameCount++;
         }
     });
+    getChild(fodeld, "Dropper1", (prop) => {
+        if(active && frameCount >= 230 && frameCount < 260){
+            prop.position.add(new THREE.Vector3(0.5,0.5,0));
+            frameCount++;
+        }
+    });
+    getChild(fodeld, "Dropper2", (prop) => {
+        if(active && frameCount >= 200 && frameCount < 230){
+            prop.position.add(new THREE.Vector3(-0.5,-0.5,0));
+            frameCount++;
+        }
+    });
+    fodeld.rotation.z += 0.01;
     getChild(fodeld, "Propeller1", (prop) => {
         prop.rotation.z += 0.8;
     });

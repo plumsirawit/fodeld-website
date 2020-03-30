@@ -172,6 +172,7 @@
         #twopane {
             display: block;
             width: 100%;
+            background: black;
         }
 
         #canvas2-root {
@@ -192,11 +193,27 @@
             width: 40vw;
         }
 
-        @media only screen and (max-width: 800px) {
+        button {
+            padding: 10px;
+            color: black;
+            background: white;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1em;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        button:active {
+            background: #C0C0C0;
+        }
+
+        @media only screen and (max-width: 1200px) {
             #twopane {
                 display: flex;
                 width: 100%;
             }
+
             #canvas2-root {
                 width: 100%;
                 height: 100vh;
@@ -205,24 +222,28 @@
                 margin: 0;
                 float: left;
             }
+
             #howitworks {
+                margin-top: 2vh;
                 width: 100%;
+                margin-bottom: 10vh;
             }
+
             #howitworks p {
                 width: 60vw;
             }
         }
-        
     </style>
 </head>
 
 <body style="margin: 0; padding: 0;">
     <script src="src/index.ts"></script>
     <header>
-        <section style="height: 20vh; margin: 0">
+        <section style="height: 20vh; margin: 0; text-align: center">
             <h1 style="
                     font-family: 'Roboto Slab', serif;
-                    font-size: 2em
+                    font-size: 2.5em;
+                    font-weight: 700
                 ">
                 &#8203;<span id="main-label"></span>
             </h1>
@@ -230,6 +251,7 @@
                     margin-top: 0px;
                     font-family: 'Roboto Slab', serif;
                     font-weight: 400;
+                    font-size: 1.5em
                 ">
                 &#8203;<span id="sub-label"></span>
             </h4>
@@ -303,7 +325,7 @@
                 ">
                 </div>
             </div>
-            <section id="howitworks">
+            <section id="howitworks" style="color: #C0C0C0; background: black">
                 <h1 style="font-size: 1.5em">
                     How it works?
                 </h1>
@@ -312,22 +334,25 @@
                 </h3>
                 <p>
                     Businesses can join with Fodeld as another e-commerce platform. Stores and restaurants can
-                    publish catalogs and receive orders real-time. Customers can browse the website as a normal online store
-                    website. When an order is placed, and the business provider confirmed the order, a fodeld will
-                    automatically fly from its base to the position of the business. The fodeld will receive the product and
-                    deliver it to the customer. And it will come back to its base. The current prototype plan only support
-                    one customer
-                    and one business per order.
+                    publish catalogs and receive orders real-time. Customers can browse the website as a normal online
+                    store website. When an order is placed, and the business provider confirmed the order, a fodeld will
+                    automatically fly from its base to the position of the business. The fodeld will receive the product
+                    and deliver it to the customer. And it will come back to its base. The current prototype plan only
+                    support one customer and one business per order.
                 </p>
                 <h3 style="font-weight: 500; font-size: 1.3em">
                     Fodeld
                 </h3>
                 <p>
-                    The Fodeld (drone) features a high-capacity battery for long usage, and also high weight limit to allow
-                    most orders to be delivered. It is composed of body parts (i.e. main body, rotors, motors, locking
-                    component, power source, camera, etc.) and a container box (attached to the locking component,
-                    under the main body).
+                    The Fodeld (drone) features a high-capacity battery for long usage, and also high weight limit to
+                    allow most orders to be delivered. It is composed of body parts (i.e. main body, rotors, motors,
+                    locking component, power source, camera, etc.) and a container box (attached to the locking
+                    component, under the main body). You can try attaching the container box to the body by clicking the
+                    button below.
                 </p>
+                <button id="attachdemo">
+                    Attach Box Demo
+                </button>
             </section>
         </section>
         <section>
@@ -367,7 +392,7 @@
             <h1>
                 Features to be implemented
             </h1>
-            <ul>
+            <ul style="max-width: 60vw">
                 <li>Front-end (Customer and Business)</li>
                 <li>Back-end (Queue and Process)</li>
                 <li>Fodeld Manufacture</li>
