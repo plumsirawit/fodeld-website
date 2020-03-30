@@ -15,7 +15,7 @@ export const loadSTL = (src : string) => {
 
 export const loadPart = (partName : string, color : number = 0xFFFFFF) => {
     return loadSTL('/assets/'+partName+'.stl').then((geometry) => {
-        const material = new THREE.MeshStandardMaterial({color : color});
+        const material = new THREE.MeshPhongMaterial({color : color});
         const tmpmesh = new THREE.Mesh(geometry, material);
         const oldCenter = getCenterCoordinate(tmpmesh);
         geometry.center();

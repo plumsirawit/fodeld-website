@@ -72,8 +72,11 @@ loadPart('Body', 0xC0C0C0).then((part) => fodeld.add(part)).then(() =>
         });
     })
 
-let hemLight = new THREE.HemisphereLight(0xFFFFFF, 0x555555, 1);
+let hemLight = new THREE.HemisphereLight(0xFFFFFF, 0x777777, 0.5);
 scene.add(hemLight);
+let pointLight = new THREE.PointLight(0xFFFFFF, 0.6, 100);
+pointLight.position.set(0,1,2);
+scene.add(pointLight);
 
 camera.position.y = 0;
 camera.position.z = 1.2;
@@ -86,16 +89,16 @@ const animate = () => {
     requestAnimationFrame(animate);
     controls.update();
     getChild(fodeld, "Propeller1", (prop) => {
-        prop.rotation.z += 1.1;
+        prop.rotation.z += 0.8;
     });
     getChild(fodeld, "Propeller2", (prop) => {
-        prop.rotation.z += 1.1;
+        prop.rotation.z += 0.8;
     });
     getChild(fodeld, "Propeller3", (prop) => {
-        prop.rotation.z += 1.1;
+        prop.rotation.z += 0.8;
     });
     getChild(fodeld, "Propeller4", (prop) => {
-        prop.rotation.z += 1.1;
+        prop.rotation.z += 0.8;
     });
     renderer.render(scene, camera);
 };
