@@ -11,7 +11,6 @@ const typewriter = (str : string, t : number = 100, callbackFn : (str : string) 
                     label = label + ch;
                     queue = q;
                     callbackFn(label);
-                    console.log(label);
                     fn();
                 }else{
                     resolve();
