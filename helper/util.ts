@@ -20,6 +20,8 @@ export const loadPart = (partName : string, color : number = 0xFFFFFF) => {
         const oldCenter = getCenterCoordinate(tmpmesh);
         geometry.center();
         const mesh = new THREE.Mesh(geometry, material);
+        const newCenter = getCenterCoordinate(mesh);
+        oldCenter.sub(newCenter);
         mesh.position.copy(oldCenter);
         mesh.name = partName;
         return mesh;

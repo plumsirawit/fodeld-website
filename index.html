@@ -150,6 +150,7 @@
 
         body {
             font-family: 'Roboto Slab', serif;
+            font-size: 1em;
         }
 
         main section {
@@ -167,6 +168,51 @@
         footer section.enabled {
             display: flex;
         }
+
+        #twopane {
+            display: block;
+            width: 100%;
+        }
+
+        #canvas2-root {
+            width: 50%;
+            height: 100vh;
+            overflow: hidden;
+            opacity: 1;
+            margin: 0;
+            float: left;
+        }
+
+        #howitworks {
+            width: 50%;
+            height: 100%;
+        }
+
+        #howitworks p {
+            width: 40vw;
+        }
+
+        @media only screen and (max-width: 800px) {
+            #twopane {
+                display: flex;
+                width: 100%;
+            }
+            #canvas2-root {
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+                opacity: 1;
+                margin: 0;
+                float: left;
+            }
+            #howitworks {
+                width: 100%;
+            }
+            #howitworks p {
+                width: 60vw;
+            }
+        }
+        
     </style>
 </head>
 
@@ -241,31 +287,48 @@
                 some area.
             </p>
         </section>
-        <section>
-            <h1>
-                How it works?
-            </h1>
-            <h3 style="font-weight: 500; font-size: 1.3em">
-                Platform
-            </h3>
-            <p style="width: 60vw">
-                Businesses can join with Fodeld as another e-commerce platform. Stores and restaurants can
-                publish catalogs and receive orders real-time. Customers can browse the website as a normal online store
-                website. When an order is placed, and the business provider confirmed the order, a fodeld will
-                automatically fly from its base to the position of the business. The fodeld will receive the product and
-                deliver it to the customer. And it will come back to its base. The current prototype plan only support
-                one customer
-                and one business per order.
-            </p>
-            <h3 style="font-weight: 500; font-size: 1.3em">
-                Fodeld
-            </h3>
-            <p style="width: 60vw">
-                The Fodeld (drone) features a high-capacity battery for long usage, and also high weight limit to allow
-                most orders to be delivered. It is composed of body parts (i.e. main body, rotors, motors, locking
-                component, power source, camera, etc.) and a container box (attached to the locking component,
-                under the main body).
-            </p>
+        <section id="twopane">
+            <div id="canvas2-root">
+                <div style="
+                    color: #C0C0C0;
+                    position: absolute;
+                    top: 20vh;
+                    right: 0vw;
+                    margin: 10px;
+                    text-align: right;
+                    display: flex;
+                    z-index: 1;
+                    display: block;
+                    font-family: 'Roboto Slab', monospace;
+                ">
+                </div>
+            </div>
+            <section id="howitworks">
+                <h1 style="font-size: 1.5em">
+                    How it works?
+                </h1>
+                <h3 style="font-weight: 500; font-size: 1.3em">
+                    Platform
+                </h3>
+                <p>
+                    Businesses can join with Fodeld as another e-commerce platform. Stores and restaurants can
+                    publish catalogs and receive orders real-time. Customers can browse the website as a normal online store
+                    website. When an order is placed, and the business provider confirmed the order, a fodeld will
+                    automatically fly from its base to the position of the business. The fodeld will receive the product and
+                    deliver it to the customer. And it will come back to its base. The current prototype plan only support
+                    one customer
+                    and one business per order.
+                </p>
+                <h3 style="font-weight: 500; font-size: 1.3em">
+                    Fodeld
+                </h3>
+                <p>
+                    The Fodeld (drone) features a high-capacity battery for long usage, and also high weight limit to allow
+                    most orders to be delivered. It is composed of body parts (i.e. main body, rotors, motors, locking
+                    component, power source, camera, etc.) and a container box (attached to the locking component,
+                    under the main body).
+                </p>
+            </section>
         </section>
         <section>
             <h1>
@@ -326,7 +389,8 @@
                 by Sirawit Pongnakintr (plum)
             </h5>
         </section>
-        <script src="src/canvas.ts"></script>
+        <script src="src/canvas1.ts"></script>
+        <script src="src/canvas2.ts"></script>
     </footer>
 </body>
 
