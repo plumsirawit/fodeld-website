@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('main-line').classList.add("expandLeft");
         setTimeout(() => document.getElementById('canvas-root').classList.add("fadeIn"), 3000);
     })).then(() => {
-        document.querySelectorAll('.after-canvas').forEach((el) => {
+        document.querySelectorAll('section').forEach((el) => {
             el.classList.add('enabled');
         });
     });

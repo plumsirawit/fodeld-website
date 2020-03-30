@@ -14,10 +14,45 @@
                 transform: translate3d(0, 0, 0);
             }
         }
+        @keyframes expandLeft-step1 {
+            to {
+                transform: translate3d(-85.71%, 0, 0);
+            }
+        }
+        @keyframes expandLeft-step2 {
+            to {
+                transform: translate3d(-71.42%, 0, 0);
+            }
+        }
+        @keyframes expandLeft-step3 {
+            to {
+                transform: translate3d(-57.14%, 0, 0);
+            }
+        }
+        @keyframes expandLeft-step4 {
+            to {
+                transform: translate3d(-42.86%, 0, 0);
+            }
+        }
+        @keyframes expandLeft-step5 {
+            to {
+                transform: translate3d(-28.57%, 0, 0);
+            }
+        }
+        @keyframes expandLeft-step6 {
+            to {
+                transform: translate3d(-14.29%, 0, 0);
+            }
+        }
+        @keyframes expandLeft-step7 {
+            to {
+                transform: translate3d(0, 0, 0);
+            }
+        }
 
         .expandLeft {
             animation-name: expandLeft;
-            animation-duration: 3s;
+            animation-duration: 1s;
             animation-fill-mode: both;
             animation-timing-function: linear;
         }
@@ -38,14 +73,6 @@
             animation-fill-mode: both;
         }
 
-        .after-canvas {
-            display: none;
-        }
-
-        .after-canvas.enabled {
-            display: flex;
-        }
-
         section {
             display: flex;
             align-items: center;
@@ -53,76 +80,133 @@
             flex-direction: column;
             height: auto;
             margin-top: 2vh;
-            margin-bottom: 2vh;
+            margin-bottom: 3vh;
         }
 
         body {
             font-family: 'Roboto Slab', serif;
+        }
+
+        main section {
+            display: none;
+        }
+
+        main section.enabled {
+            display: flex;
+        }
+
+        footer section {
+            display: none;
+        }
+
+        footer section.enabled {
+            display: flex;
         }
     </style>
 </head>
 
 <body style="margin: 0; padding: 0;">
     <script src="src/index.ts"></script>
-    <section style="height: 20vh; margin: 0">
-        <h1 style="
-                font-family: 'Roboto Slab', serif;
-                font-size: 2em
+    <header>
+        <section style="height: 20vh; margin: 0">
+            <h1 style="
+                    font-family: 'Roboto Slab', serif;
+                    font-size: 2em
+                ">
+                &#8203;<span id="main-label"></span>
+            </h1>
+            <h4 style="
+                    margin-top: 0px;
+                    font-family: 'Roboto Slab', serif;
+                    font-weight: 400;
+                ">
+                &#8203;<span id="sub-label"></span>
+            </h4>
+        </section>
+        <div style="
+                    border-bottom-style: solid;
+                    height: 0px;
+                    width: 100%;
+                    transform: translate3d(-100%, 0, 0);
+                " id="main-line">
+        </div>
+    </header>
+    <main>
+        <div id="canvas-root" style="width: 100%; height: 80vh; overflow: hidden; opacity: 0; margin: 0;">
+            <div style="
+                color: #C0C0C0;
+                position: absolute;
+                top: 20vh;
+                right: 0vw;
+                margin: 10px;
+                text-align: right;
+                display: flex;
+                z-index: 1;
+                display: block;
+                font-family: 'Roboto Slab', monospace;
             ">
-            &#8203;<span id="main-label"></span>
-        </h1>
-        <h4 style="
-                margin-top: 0px;
-                font-family: 'Roboto Slab', serif;
-                font-weight: 400;
-            ">
-            &#8203;<span id="sub-label"></span>
-        </h4>
-    </section>
-    <div style="
+                <h4 style="margin: 0; font-weight: 400;">Drag to rotate the fodeld</h4>
+                <h4 style="margin: 0; font-weight: 400;">Scroll down for more information</h4>
+            </div>
+        </div>
+        <section>
+            <h1>
+                But what is Fodeld?
+            </h1>
+            <p style="width: 60vw">
+                Fodeld (an acronym for "Food delivery drone") is a specialized unmanned aerial vehicle aimed to serve
+                the demand of food for people staying home. In the current days, people are encouraged to stay home. But
+                deliverypersons are prone to COVID-19 and we want to minimize that risk.
+                So we want a solution to solve the problems as follow:
+            </p>
+            <ol>
+                <li>Reduce the risk of infection on deliverypersons</li>
+                <li>Develop the speed of food delivery process</li>
+                <li>Encourage people to stay home</li>
+            </ol>
+            <p style="width: 60vw">
+                Fodeld is a product that solves the specified problems. By using an unmanned aerial vehicle, delivery
+                could be done faster, there is no need for deliverypersons to go out, and everyone can stay home with a
+                better access to basic needs.
+            </p>
+            <p style="width: 60vw">
+                In the worst case of COVID-19, there may be an emergency full lockdown. If successfully built, Fodeld
+                might be handy for that situation. This would be an extra purpose as a preparation to the worst case in
+                some area.
+            </p>
+        </section>
+        <section style="
                 border-bottom-style: solid;
                 height: 0px;
                 width: 100%;
-                transform: translate3d(-100%, 0, 0);
-            " id="main-line">
-    </div>
-    <section id="canvas-root" style="width: 100%; height: 80vh; overflow: hidden; opacity: 0; margin: 0">
-        <div style="
-            color: #C0C0C0;
-            position: absolute;
-            top: 20vh;
-            right: 0vw;
-            margin: 10px;
-            display: flex;
-            z-index: 1;
-            display: block;
-            font-family: 'Roboto Slab', monospace;
-        ">
-            <h4 style="margin: 0; font-weight: 400;">Drag to rotate the fodeld</h4>
-        </div>
-    </section>
-    <section class="after-canvas">
-        <h1>
-            But what is Fodeld?
-        </h1>
-        <p style="width: 60vw">
-            Fodeld (an acronym for "Food delivery drone") is a specialized unmanned aerial vehicle aimed to serve the
-            demand of food for people staying home.
-            In the current days, people are encouraged to stay home. But deliverypersons are prone to COVID-19 and we
-            want to minimize that risk.
-            So we want a solution to solve the problems as follow:
-        </p>
-        <ol>
-            <li>Reduce the risk of infection on deliverypersons</li>
-            <li>Develop the speed of food delivery process</li>
-            <li>Encourage people to stay home</li>
-        </ol>
-        <p style="width: 60vw">
-            Fodeld is a product that solves the specified problems. By using an unmanned aerial vehicle, delivery could
-            be done faster, there is no need for deliverypersons to go out, and everyone can stay home with an increased comfort.
-        </p>
-    </section>
-    <script src="src/canvas.ts"></script>
+            ">
+        </section>
+        <section>
+            <h1>
+                Required Features
+            </h1>
+            <ul>
+                <li>Front-end (Customer and Business)</li>
+                <li>Back-end (Queue and Process)</li>
+                <li>Fodeld Manufacture</li>
+                <li>Fodeld Programming</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <section style="background: black; color: white; margin-bottom: 0;">
+            <h3 style="font-weight: 400">
+                Submitted as a COVID-19 Global Hackathon Project
+            </h3>
+            <h2>
+                #BuildforCOVID19
+            </h2>
+            <h5 style="font-weight: 300">
+                Sirawit Pongnakintr, 2020
+            </h5>
+        </section>
+        <script src="src/canvas.ts"></script>
+    </footer>
 </body>
 
 </html>

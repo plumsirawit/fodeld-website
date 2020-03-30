@@ -12,6 +12,11 @@ let renderer = new THREE.WebGLRenderer( {antialias : true} );
 renderer.setSize(width, height);
 document.getElementById('canvas-root').appendChild(renderer.domElement);
 
+THREE.DefaultLoadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+    console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+    document.getElementById('main-line').style.animationName = 'expandLeft-step' + itemsLoaded;
+};
+
 interface Fodeld {
     body: THREE.Object3D | undefined;
     propeller1: THREE.Object3D | undefined;
