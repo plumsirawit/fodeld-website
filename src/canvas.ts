@@ -14,7 +14,14 @@ document.getElementById('canvas-root').appendChild(renderer.domElement);
 
 THREE.DefaultLoadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
     console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-    document.getElementById('main-line').style.animationName = 'expandLeft-step' + itemsLoaded;
+    document.getElementById('main-line').style.animationName = 'expandLeft-step' + itemsLoaded.toString();
+};
+THREE.DefaultLoadingManager.onLoad = function () {
+    console.log( 'Loading Complete!');
+    document.getElementById('canvas-root').classList.add("fadeIn");
+    document.querySelectorAll('section').forEach((el) => {
+        el.classList.add('enabled');
+    });
 };
 
 interface Fodeld {

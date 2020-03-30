@@ -26,10 +26,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }).then(() => typewriter('An innovative solution to reduce hunger during self-lockdown', 50, (str) => {
         document.getElementById('sub-label').innerHTML = str;
         document.getElementById('main-line').classList.add("expandLeft");
-        setTimeout(() => document.getElementById('canvas-root').classList.add("fadeIn"), 3000);
-    })).then(() => {
-        document.querySelectorAll('section').forEach((el) => {
-            el.classList.add('enabled');
-        });
-    });
+    }));
 });

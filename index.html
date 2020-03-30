@@ -5,46 +5,55 @@
         rel="stylesheet">
     </link>
     <style>
-        @keyframes expandLeft {
-            from {
-                transform: translate3d(-100%, 0, 0);
-            }
-
-            to {
-                transform: translate3d(0, 0, 0);
-            }
-        }
         @keyframes expandLeft-step1 {
             to {
                 transform: translate3d(-85.71%, 0, 0);
             }
         }
         @keyframes expandLeft-step2 {
+            from {
+                transform: translate3d(-85.71%, 0, 0);
+            }
             to {
                 transform: translate3d(-71.42%, 0, 0);
             }
         }
         @keyframes expandLeft-step3 {
+            from {
+                transform: translate3d(-71.42%, 0, 0);
+            }
             to {
                 transform: translate3d(-57.14%, 0, 0);
             }
         }
         @keyframes expandLeft-step4 {
+            from {
+                transform: translate3d(-57.14%, 0, 0);
+            }
             to {
                 transform: translate3d(-42.86%, 0, 0);
             }
         }
         @keyframes expandLeft-step5 {
+            from {
+                transform: translate3d(-42.86%, 0, 0);
+            }
             to {
                 transform: translate3d(-28.57%, 0, 0);
             }
         }
         @keyframes expandLeft-step6 {
+            from {
+                transform: translate3d(-28.57%, 0, 0);
+            }
             to {
                 transform: translate3d(-14.29%, 0, 0);
             }
         }
         @keyframes expandLeft-step7 {
+            from {
+                transform: translate3d(-14.29%, 0, 0);
+            }
             to {
                 transform: translate3d(0, 0, 0);
             }
@@ -52,7 +61,7 @@
 
         .expandLeft {
             animation-name: expandLeft;
-            animation-duration: 1s;
+            animation-duration: 0.1s;
             animation-fill-mode: both;
             animation-timing-function: linear;
         }
