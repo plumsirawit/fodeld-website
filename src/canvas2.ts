@@ -78,32 +78,42 @@ let hemLight = new THREE.HemisphereLight(0xFFFFFF, 0x777777, 1);
 scene.add(hemLight);
 
 camera.position.y = 0;
-camera.position.z = 1.5;
+camera.position.z = 1.3;
 
 let frameCount = 0;
-let active = false;
-
-const setActive = (val) => active = val;
-document.getElementById('attachdemo').addEventListener('click', () => setActive(true));
+let active = true;
 
 const animate = () => {
     requestAnimationFrame(animate);
+    frameCount %= 400;
+    if(active && (frameCount >= 360 || (frameCount >= 160 && frameCount < 200))) frameCount++;
     getChild(fodeld, "Box", (prop) => {
-        if(active && frameCount < 200){
-            prop.position.z += 0.5;
-            console.log(prop.position);
+        if(active && frameCount < 100){
+            prop.position.z++;
+            frameCount++;
+        }
+        if(active && frameCount >= 260 && frameCount < 360){
+            prop.position.z--;
             frameCount++;
         }
     });
     getChild(fodeld, "Dropper1", (prop) => {
-        if(active && frameCount >= 230 && frameCount < 260){
+        if(active && frameCount >= 130 && frameCount < 160){
             prop.position.add(new THREE.Vector3(0.5,0.5,0));
+            frameCount++;
+        }
+        if(active && frameCount >= 200 && frameCount < 230){
+            prop.position.add(new THREE.Vector3(-0.5,-0.5,0));
             frameCount++;
         }
     });
     getChild(fodeld, "Dropper2", (prop) => {
-        if(active && frameCount >= 200 && frameCount < 230){
+        if(active && frameCount >= 100 && frameCount < 130){
             prop.position.add(new THREE.Vector3(-0.5,-0.5,0));
+            frameCount++;
+        }
+        if(active && frameCount >= 230 && frameCount < 260){
+            prop.position.add(new THREE.Vector3(0.5,0.5,0));
             frameCount++;
         }
     });
