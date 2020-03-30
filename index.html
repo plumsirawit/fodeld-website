@@ -10,50 +10,62 @@
                 transform: translate3d(-85.71%, 0, 0);
             }
         }
+
         @keyframes expandLeft-step2 {
             from {
                 transform: translate3d(-85.71%, 0, 0);
             }
+
             to {
                 transform: translate3d(-71.42%, 0, 0);
             }
         }
+
         @keyframes expandLeft-step3 {
             from {
                 transform: translate3d(-71.42%, 0, 0);
             }
+
             to {
                 transform: translate3d(-57.14%, 0, 0);
             }
         }
+
         @keyframes expandLeft-step4 {
             from {
                 transform: translate3d(-57.14%, 0, 0);
             }
+
             to {
                 transform: translate3d(-42.86%, 0, 0);
             }
         }
+
         @keyframes expandLeft-step5 {
             from {
                 transform: translate3d(-42.86%, 0, 0);
             }
+
             to {
                 transform: translate3d(-28.57%, 0, 0);
             }
         }
+
         @keyframes expandLeft-step6 {
             from {
                 transform: translate3d(-28.57%, 0, 0);
             }
+
             to {
                 transform: translate3d(-14.29%, 0, 0);
             }
         }
+
         @keyframes expandLeft-step7 {
             from {
                 transform: translate3d(-14.29%, 0, 0);
             }
+
             to {
                 transform: translate3d(0, 0, 0);
             }
@@ -65,36 +77,42 @@
             animation-fill-mode: both;
             animation-timing-function: linear;
         }
+
         .expandLeft-step2 {
             animation-name: expandLeft-step2;
             animation-duration: 800ms;
             animation-fill-mode: both;
             animation-timing-function: linear;
         }
+
         .expandLeft-step3 {
             animation-name: expandLeft-step3;
             animation-duration: 800ms;
             animation-fill-mode: both;
             animation-timing-function: linear;
         }
+
         .expandLeft-step4 {
             animation-name: expandLeft-step4;
             animation-duration: 800ms;
             animation-fill-mode: both;
             animation-timing-function: linear;
         }
+
         .expandLeft-step5 {
             animation-name: expandLeft-step5;
             animation-duration: 800ms;
             animation-fill-mode: both;
             animation-timing-function: linear;
         }
+
         .expandLeft-step6 {
             animation-name: expandLeft-step6;
             animation-duration: 800ms;
             animation-fill-mode: both;
             animation-timing-function: linear;
         }
+
         .expandLeft-step7 {
             animation-name: expandLeft-step7;
             animation-duration: 800ms;
@@ -127,6 +145,7 @@
             height: auto;
             margin-top: 2vh;
             margin-bottom: 3vh;
+            line-height: 1.7em;
         }
 
         body {
@@ -201,14 +220,15 @@
             </h1>
             <p style="width: 60vw">
                 Fodeld (an acronym for "Food delivery drone") is a specialized unmanned aerial vehicle aimed to serve
-                the demand of food for people staying home. In the current days, people are encouraged to stay home. But
+                the demand of food for people staying at home. In the current days, people are encouraged to stay home.
+                But
                 deliverypersons are prone to COVID-19 and we want to minimize that risk.
                 So we want a solution to solve the problems as follow:
             </p>
             <ol>
                 <li>Reduce the risk of infection on deliverypersons</li>
                 <li>Develop the speed of food delivery process</li>
-                <li>Encourage people to stay home</li>
+                <li>Encourage people to stay at home</li>
             </ol>
             <p style="width: 60vw">
                 Fodeld is a product that solves the specified problems. By using an unmanned aerial vehicle, delivery
@@ -221,15 +241,68 @@
                 some area.
             </p>
         </section>
-        <section style="
-                border-bottom-style: solid;
-                height: 0px;
-                width: 100%;
-            ">
+        <section>
+            <h1>
+                How it works?
+            </h1>
+            <h3 style="font-weight: 500; font-size: 1.3em">
+                Platform
+            </h3>
+            <p style="width: 60vw">
+                Businesses can join with Fodeld as another e-commerce platform. Stores and restaurants can
+                publish catalogs and receive orders real-time. Customers can browse the website as a normal online store
+                website. When an order is placed, and the business provider confirmed the order, a fodeld will
+                automatically fly from its base to the position of the business. The fodeld will receive the product and
+                deliver it to the customer. And it will come back to its base. The current prototype plan only support
+                one customer
+                and one business per order.
+            </p>
+            <h3 style="font-weight: 500; font-size: 1.3em">
+                Fodeld
+            </h3>
+            <p style="width: 60vw">
+                The Fodeld (drone) features a high-capacity battery for long usage, and also high weight limit to allow
+                most orders to be delivered. It is composed of body parts (i.e. main body, rotors, motors, locking
+                component, power source, camera, etc.) and a container box (attached to the locking component,
+                under the main body).
+            </p>
         </section>
         <section>
             <h1>
-                Required Features
+                Limitations
+            </h1>
+            <p style="width: 60vw">
+                There are still limitations according to current technology. But these limitations does not imply
+                failure of Fodeld. Fodeld is still possible to be built, the limitations are just specs that are
+                possible to be improved for better use. Following will be a compiled list of possible limitations
+                <ul style="max-width: 60vw">
+                    <li>
+                        According to current technology, most commercial drones still
+                        have a fairly short flight time. As an example from Impossible Aerospace Corp, maximum drone
+                        flight time is 78 Minutes (ref:
+                        <a href="https://impossible.aero/meet-us-1/">
+                            https://impossible.aero/meet-us-1/
+                        </a>).
+                    </li>
+                    <li>
+                        Internet connection during each flight might be inconsistent, so the fodelds must be able to fly
+                        on their own without internet connection. This may be implemented by requesting the directions
+                        before each flight and only fly according to the directions.
+                    </li>
+                    <li>
+                        They might collide into each other, but this can be fix easily by setting the simultaneous
+                        flights to different heights, each level is at least 1 meter apart from the other levels.
+                    </li>
+                    <li>
+                        There might be technical problems (disorientation during flights, being hit or shot by objects,
+                        collision with buildings, windy or rainy environment).
+                    </li>
+                </ul>
+            </p>
+        </section>
+        <section>
+            <h1>
+                Features to be implemented
             </h1>
             <ul>
                 <li>Front-end (Customer and Business)</li>
@@ -239,8 +312,8 @@
             </ul>
         </section>
     </main>
-    <footer>
-        <section style="background: black; color: white; margin-bottom: 0;">
+    <footer style="text-align: center;">
+        <section style="background: black; color: white; margin-top: 10vh; margin-bottom: 0;">
             <h3 style="font-weight: 400">
                 Submitted as a COVID-19 Global Hackathon Project
             </h3>
@@ -248,7 +321,9 @@
                 #BuildforCOVID19
             </h2>
             <h5 style="font-weight: 300">
-                Sirawit Pongnakintr, 2020
+                © Fodeld, 2020
+                <br />
+                by Sirawit Pongnakintr (plum)
             </h5>
         </section>
         <script src="src/canvas.ts"></script>

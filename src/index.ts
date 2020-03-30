@@ -23,7 +23,7 @@ export const typewriter = (str : string, t : number = 100, callbackFn : (str : s
 document.addEventListener('DOMContentLoaded', () => {
     typewriter('Fodeld', 80, (str) => {
         document.getElementById('main-label').innerHTML = str;
-    }).then(() => typewriter('An innovative solution to reduce hunger during self-lockdown', 50, (str) => {
+    }).then(() => typewriter('An innovative solution to facilitate stay-at-home life', 50, (str) => {
         document.getElementById('sub-label').innerHTML = str;
     }));
 });
