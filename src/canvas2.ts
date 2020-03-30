@@ -80,10 +80,6 @@ scene.add(hemLight);
 camera.position.y = 0;
 camera.position.z = 1.5;
 
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enablePan = false;
-controls.enableZoom = false;
-
 let frameCount = 0;
 let active = false;
 
@@ -92,7 +88,6 @@ document.getElementById('attachdemo').addEventListener('click', () => setActive(
 
 const animate = () => {
     requestAnimationFrame(animate);
-    controls.update();
     getChild(fodeld, "Box", (prop) => {
         if(active && frameCount < 200){
             prop.position.z += 0.5;
