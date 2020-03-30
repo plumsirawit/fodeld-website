@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
 
 export const delay = (ms) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise(resolve => setTimeout(() => resolve, ms));
 }
 export const loadSTL = (src : string) => {
     return new Promise<THREE.BufferGeometry>(resolve => {
@@ -13,9 +13,9 @@ export const loadSTL = (src : string) => {
     });
 }
 
-export const loadPart = (partName : string) => {
+export const loadPart = (partName : string, color : number = 0xFFFFFF) => {
     return loadSTL('/assets/'+partName+'.stl').then((geometry) => {
-        const material = new THREE.MeshStandardMaterial();
+        const material = new THREE.MeshStandardMaterial({color : color});
         const tmpmesh = new THREE.Mesh(geometry, material);
         const oldCenter = getCenterCoordinate(tmpmesh);
         geometry.center();

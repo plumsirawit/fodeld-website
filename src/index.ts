@@ -1,5 +1,5 @@
-import { delay } from '../helper/util';
-const typewriter = (str : string, t : number = 100, callbackFn : (str : string) => void = () => {}) => {
+
+export const typewriter = (str : string, t : number = 100, callbackFn : (str : string) => void = () => {}) => {
     return new Promise<void>((resolve, reject) => {
         let label = '';
         let queue = str.split('');
@@ -27,5 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('sub-label').innerHTML = str;
         document.getElementById('main-line').classList.add("expandLeft");
         setTimeout(() => document.getElementById('canvas-root').classList.add("fadeIn"), 3000);
-    }));
+    })).then(() => {
+        document.querySelectorAll('.after-canvas').forEach((el) => {
+            el.classList.add('enabled');
+        });
+    });
 });

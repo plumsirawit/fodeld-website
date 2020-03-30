@@ -26,13 +26,13 @@ interface Fodeld {
 const fodeld = new THREE.Group();
 fodeld.rotation.x = 3*Math.PI/2 + Math.PI/6;
 fodeld.rotation.z = Math.PI/4;
-loadPart('Body').then((part) => fodeld.add(part)).then(() =>
+loadPart('Body', 0xC0C0C0).then((part) => fodeld.add(part)).then(() =>
 loadPart('Propeller1')).then((part) => fodeld.add(part)).then(() =>
 loadPart('Propeller2')).then((part) => fodeld.add(part)).then(() =>
 loadPart('Propeller3')).then((part) => fodeld.add(part)).then(() =>
 loadPart('Propeller4')).then((part) => fodeld.add(part)).then(() =>
-loadPart('Dropper1')).then((part) => fodeld.add(part)).then(() =>
-loadPart('Dropper2')).then((part) => fodeld.add(part))
+loadPart('Dropper1', 0xF32013)).then((part) => fodeld.add(part)).then(() =>
+loadPart('Dropper2', 0xF32013)).then((part) => fodeld.add(part))
 .then(() => {
     scene.add(fodeld);
     let bbox = new THREE.Box3().setFromObject(fodeld);
@@ -45,7 +45,19 @@ loadPart('Dropper2')).then((part) => fodeld.add(part))
     bbox.getCenter(fodeld.position);
     fodeld.position.multiplyScalar(-1);
     console.log(fodeld);
-});
+})
+.then(() => {
+    getChild(fodeld, "Dropper1", (child) => {
+        child.position.x -= 10;
+        child.position.y -= 10;
+        console.log(child.position);
+    });
+    getChild(fodeld, "Dropper2", (child) => {
+        child.position.x += 10;
+        child.position.y += 10;
+        console.log(child.position);
+    });
+})
 
 let hemLight = new THREE.HemisphereLight(0xFFFFFF, 0x555555, 1);
 scene.add(hemLight);
@@ -80,6 +92,15 @@ animate();
 window.addEventListener('resize', () => {
     width = document.getElementById('canvas-root').offsetWidth;
     height = document.getElementById('canvas-root').offsetHeight;
+    const r = width / height;
+	const degToRad = (deg : number) => deg * Math.PI / 180;
+	const radToDeg = (rad : number) => rad * 180 / Math.PI;
+	const computeHorizontalFOV = (fov : number, aspectRatio : number) => 2*radToDeg(Math.asin(aspectRatio*Math.sin(degToRad(fov/2))));
+	if(computeHorizontalFOV(50, r) < 50){
+		camera.fov = 2*radToDeg(Math.asin(Math.sin(degToRad(25))/r));
+	}else{
+		camera.fov = 50;
+	}
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);

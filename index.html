@@ -37,18 +37,34 @@
             animation-duration: 2s;
             animation-fill-mode: both;
         }
-    </style>
-</head>
 
-<body style="margin: 0; padding: 0">
-    <script src="src/index.ts"></script>
-    <section style="
+        .after-canvas {
+            display: none;
+        }
+
+        .after-canvas.enabled {
+            display: flex;
+        }
+
+        section {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            height: 20vh;
-        ">
+            height: auto;
+            margin-top: 2vh;
+            margin-bottom: 2vh;
+        }
+
+        body {
+            font-family: 'Roboto Slab', serif;
+        }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <script src="src/index.ts"></script>
+    <section style="height: 20vh; margin: 0">
         <h1 style="
                 font-family: 'Roboto Slab', serif;
                 font-size: 2em
@@ -70,7 +86,42 @@
                 transform: translate3d(-100%, 0, 0);
             " id="main-line">
     </div>
-    <div id="canvas-root" style="width: 100%; height: 80vh; overflow: hidden; opacity: 0;"></div>
+    <section id="canvas-root" style="width: 100%; height: 80vh; overflow: hidden; opacity: 0; margin: 0">
+        <div style="
+            color: #C0C0C0;
+            position: absolute;
+            top: 20vh;
+            right: 0vw;
+            margin: 10px;
+            display: flex;
+            z-index: 1;
+            display: block;
+            font-family: 'Roboto Slab', monospace;
+        ">
+            <h4 style="margin: 0; font-weight: 400;">Drag to rotate the fodeld</h4>
+        </div>
+    </section>
+    <section class="after-canvas">
+        <h1>
+            But what is Fodeld?
+        </h1>
+        <p style="width: 60vw">
+            Fodeld (an acronym for "Food delivery drone") is a specialized unmanned aerial vehicle aimed to serve the
+            demand of food for people staying home.
+            In the current days, people are encouraged to stay home. But deliverypersons are prone to COVID-19 and we
+            want to minimize that risk.
+            So we want a solution to solve the problems as follow:
+        </p>
+        <ol>
+            <li>Reduce the risk of infection on deliverypersons</li>
+            <li>Develop the speed of food delivery process</li>
+            <li>Encourage people to stay home</li>
+        </ol>
+        <p style="width: 60vw">
+            Fodeld is a product that solves the specified problems. By using an unmanned aerial vehicle, delivery could
+            be done faster, there is no need for deliverypersons to go out, and everyone can stay home with an increased comfort.
+        </p>
+    </section>
     <script src="src/canvas.ts"></script>
 </body>
 
