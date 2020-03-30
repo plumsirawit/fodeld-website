@@ -14,7 +14,8 @@ document.getElementById('canvas-root').appendChild(renderer.domElement);
 
 THREE.DefaultLoadingManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
     console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-    document.getElementById('main-line').style.animationName = 'expandLeft-step' + itemsLoaded.toString();
+    if(itemsLoaded > 1) document.getElementById('main-line').classList.remove('expandLeft-step' + (itemsLoaded-1).toString());
+    document.getElementById('main-line').classList.add('expandLeft-step' + itemsLoaded.toString());
 };
 THREE.DefaultLoadingManager.onLoad = function () {
     console.log( 'Loading Complete!');
